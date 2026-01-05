@@ -1,0 +1,11 @@
+{
+  "createdBy": "user123",
+  "category": "PLANNED",
+  "type": "INFORMATION",
+  "startDate": "START_DATE",
+  "endDate": "END_DATE",
+  "startTime":"START_TIME",
+  "endTime":"END_TIME",
+  "title": "System Maintenance",
+  "details": "The system will be undergoing maintenance during this period."
+}

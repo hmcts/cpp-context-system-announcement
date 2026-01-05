@@ -1,0 +1,82 @@
+#%RAML 1.0
+title: System Announcement - API
+protocols: [ HTTP, HTTPS ]
+baseUri: http://localhost:8080/systemannouncement-service/rest/systemannouncement
+
+/announcement:
+  description: create or delete system announcement
+  post:
+    description: |
+      ...
+      (mapping):
+          requestType: application/vnd.systemannouncement.create-system-announcement+json
+          name: systemannouncement.create-system-announcement
+      (mapping):
+          requestType: application/vnd.systemannouncement.delete-expired-system-announcements+json
+          name: systemannouncement.delete-expired-system-announcements
+      ...
+    body:
+      application/vnd.systemannouncement.create-system-announcement+json:
+        example: !include json/systemannouncement.create-system-announcement.json
+        schema: !include json/schema/systemannouncement.create-system-announcement.json
+      application/vnd.systemannouncement.delete-expired-system-announcements+json:
+        example: !include json/systemannouncement.delete-expired-system-announcements.json
+        schema: !include json/schema/systemannouncement.delete-expired-system-announcements.json
+    responses:
+      202:
+        description: OK
+      500:
+        description: Internal Server Error
+
+/announcements:
+  description: get system announcements
+  get:
+    description: |
+      Return the system announcements
+      ...
+      (mapping):
+          responseType: application/vnd.systemannouncement.get-all-announcements+json
+          name: systemannouncement.get-all-announcements
+      (mapping):
+          responseType: application/vnd.systemannouncement.get-banner-announcements+json
+          name: systemannouncement.get-banner-announcements       
+      ...
+    responses:
+      200:
+        description: OK
+        body:
+          application/vnd.systemannouncement.get-all-announcements+json:
+            example: !include json/systemannouncement.get-all-announcements.json
+            schema: !include json/schema/systemannouncement.get-all-announcements.json
+          application/vnd.systemannouncement.get-banner-announcements+json:
+            example: !include json/systemannouncement.get-banner-announcements.json
+            schema: !include json/schema/systemannouncement.get-banner-announcements.json
+
+/announcement/{systemAnnouncementId}:
+  uriParameters:
+    systemAnnouncementId:
+      description: system announcement ID to update or delete
+      type: string
+  description: update or delete system announcements
+  post:
+    description: |
+      ...
+      (mapping):
+          requestType: application/vnd.systemannouncement.update-system-announcement+json
+          name: systemannouncement.update-system-announcement
+      (mapping):
+          requestType: application/vnd.systemannouncement.delete-system-announcement-by-id+json
+          name: systemannouncement.delete-system-announcement-by-id
+      ...
+    body:
+      application/vnd.systemannouncement.update-system-announcement+json:
+        example: !include json/systemannouncement.update-system-announcement.json
+        schema: !include json/schema/systemannouncement.update-system-announcement.json
+      application/vnd.systemannouncement.delete-system-announcement-by-id+json:
+        example: !include json/systemannouncement.delete-system-announcement-by-id.json
+        schema: !include json/schema/systemannouncement.delete-system-announcement-by-id.json
+    responses:
+      202:
+        description: OK
+      500:
+        description: Internal Server Error

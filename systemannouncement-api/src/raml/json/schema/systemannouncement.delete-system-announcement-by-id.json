@@ -1,0 +1,5 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://justice.gov.uk/cpp/systemannouncement/command/systemannouncement.delete-system-announcement-by-id.json",
+  "type": "object"
+}

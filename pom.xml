@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>uk.gov.moj.cpp.common</groupId>
+        <artifactId>service-parent-pom</artifactId>
+        <version>17.103.3</version>
+    </parent>
+
+    <groupId>uk.gov.moj.cpp.system.announcement</groupId>
+    <artifactId>systemannouncement-parent</artifactId>
+    <version>17.100.10-SNAPSHOT</version>
+    <properties>
+        <mvn.site.url>file://${project.build.directory}/site</mvn.site.url>
+        <commons-dbutils.version>1.6</commons-dbutils.version>
+        <jgitflow.maven.developBranchName>main</jgitflow.maven.developBranchName>
+        <usersgroups.version>17.0.39</usersgroups.version>
+    </properties>
+
+    <packaging>pom</packaging>
+    <modules>
+        <module>systemannouncement-persistence</module>
+        <module>systemannouncement-domain-common</module>
+        <module>systemannouncement-service</module>
+        <module>systemannouncement-healthchecks</module>
+        <module>systemannouncement-integration-test</module>
+        <module>systemannouncement-api</module>
+    </modules>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <archiveClasses>true</archiveClasses>
+                    <attachClasses>true</attachClasses>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>commons-dbutils</groupId>
+                <artifactId>commons-dbutils</artifactId>
+                <version>${commons-dbutils.version}</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <distributionManagement>
+        <site>
+            <id>site</id>
+            <url>${mvn.site.url}</url>
+        </site>
+    </distributionManagement>
+</project>

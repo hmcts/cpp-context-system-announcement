@@ -1,0 +1,18 @@
+package uk.gov.moj.cpp.system.announcement.api.accesscontrol;
+
+import uk.gov.moj.cpp.accesscontrol.drools.Outcome;
+import uk.gov.moj.cpp.accesscontrol.drools.Action;
+import uk.gov.moj.cpp.system.announcement.api.accesscontrol.ExpectedPermissionConstants;
+
+global uk.gov.moj.cpp.accesscontrol.common.providers.UserAndGroupProvider userAndGroupProvider;
+
+
+rule "Command - delete expired system announcements"
+  when
+    $outcome: Outcome();
+    $action: Action(name == "systemannouncement.delete-expired-system-announcements");
+    eval(userAndGroupProvider.hasPermission($action, ExpectedPermissionConstants.expectedPermissionForSystemAnnouncement())) or
+    eval(userAndGroupProvider.isMemberOfAnyOfTheSuppliedGroups($action, "System Users"));
+  then
+    $outcome.setSuccess(true);
+end

@@ -1,0 +1,62 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://justice.gov.uk/cpp/systemannouncement/command/systemannouncement.update-system-announcement.json",
+  "type": "object",
+  "properties": {
+    "systemAnnouncementId": {
+      "$ref": "#/definitions/uuid"
+    },
+    "createdBy": {
+      "type": "string",
+      "description": "User who created the announcement"
+    },
+    "category": {
+      "type": "string",
+      "enum": ["UNPLANNED", "PLANNED"],
+      "description": "Category of the announcement"
+    },
+    "type": {
+      "type": "string",
+      "enum": ["CRITICAL", "WARNING", "INFORMATION"],
+      "description": "Type of the announcement"
+    },
+    "startDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Start date of the announcement"
+    },
+    "endDate": {
+      "type": "string",
+      "format": "date",
+      "description": "End date of the announcement"
+    },
+    "startTime": {
+      "type": "string",
+      "format": "time",
+      "description": "Start time of the announcement in HH:MM:SS format"
+    },
+    "endTime": {
+      "type": "string",
+      "format": "time",
+      "description": "End time of the announcement in HH:MM:SS format"
+    },
+    "title": {
+      "type": "string",
+      "description": "Title of the announcement"
+    },
+    "details": {
+      "type": "string",
+      "description": "Optional details about the announcement"
+    }
+  },
+  "required": [
+    "systemAnnouncementId"
+  ],
+  "additionalProperties": false,
+  "definitions": {
+    "uuid": {
+      "type": "string",
+      "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$"
+    }
+  }
+}

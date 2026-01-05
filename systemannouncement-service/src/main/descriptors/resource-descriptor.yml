@@ -1,0 +1,24 @@
+---
+resource_descriptor:
+  spec_version: '1.0.0'
+  version: '${project.version}'
+
+  resources:
+    - name: java:/DS.systemannouncement
+      type: xa-datasource
+      setup:
+        - type: liquibase
+          maven:
+            groupId: uk.gov.moj.cpp.system.announcement
+            artifactId: systemannouncement-liquibase
+            type: jar
+            version: '${project.version}'
+
+    # Artefact provides these services
+    - name:   'systemannouncement-service'
+      id:     'systemannouncement'
+      target: '/systemannouncement-service'
+      map:
+        - '/systemannouncement-api'
+      matcher: '/systemannouncement-[^/]+'
+

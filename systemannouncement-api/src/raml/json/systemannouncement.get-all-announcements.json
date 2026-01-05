@@ -1,0 +1,32 @@
+{
+  "systemAnnouncements": [
+    {
+      "id": "2e27b257-a66d-4d29-8690-310162cdd363",
+      "createdBy": "user123",
+      "category": "PLANNED",
+      "type": "INFORMATION",
+      "startDate": "2025-03-10",
+      "endDate": "2025-04-09",
+      "startTime": "20:00:00",
+      "endTime": "20:00:00",
+      "title": "System Maintenance",
+      "details": "The system will be undergoing maintenance during this period.",
+      "createdAt": "2025-03-20T15:12:37.923Z",
+      "orderIndex": 6
+    },
+    {
+      "id": "37314b36-f54a-4cde-8124-f3bd5691fc38",
+      "createdBy": "user123",
+      "category": "PLANNED",
+      "type": "INFORMATION",
+      "startDate": "2025-03-10",
+      "endDate": "2025-04-09",
+      "startTime": "20:00:00",
+      "endTime": "20:00:00",
+      "title": "System Maintenance",
+      "details": "The system will be undergoing maintenance during this period.",
+      "createdAt": "2025-03-20T15:13:39.041Z",
+      "orderIndex": 6
+    }
+  ]
+}

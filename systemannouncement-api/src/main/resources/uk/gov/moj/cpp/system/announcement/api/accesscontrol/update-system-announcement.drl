@@ -1,0 +1,17 @@
+package uk.gov.moj.cpp.system.announcement.api.accesscontrol;
+
+import uk.gov.moj.cpp.accesscontrol.drools.Outcome;
+import uk.gov.moj.cpp.accesscontrol.drools.Action;
+import uk.gov.moj.cpp.system.announcement.api.accesscontrol.ExpectedPermissionConstants;
+
+global uk.gov.moj.cpp.accesscontrol.common.providers.UserAndGroupProvider userAndGroupProvider;
+
+
+rule "Command - update system announcement"
+  when
+    $outcome: Outcome();
+    $action: Action(name == "systemannouncement.update-system-announcement");
+    eval(userAndGroupProvider.hasPermission($action, ExpectedPermissionConstants.expectedPermissionForSystemAnnouncement()));
+  then
+    $outcome.setSuccess(true);
+end

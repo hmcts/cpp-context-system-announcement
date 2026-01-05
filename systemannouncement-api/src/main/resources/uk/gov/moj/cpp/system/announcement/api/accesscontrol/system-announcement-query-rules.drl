@@ -1,0 +1,25 @@
+package uk.gov.moj.cpp.system.announcement.api.accesscontrol;
+
+import uk.gov.moj.cpp.accesscontrol.drools.Outcome;
+import uk.gov.moj.cpp.accesscontrol.drools.Action;
+import uk.gov.moj.cpp.system.announcement.api.accesscontrol.ExpectedPermissionConstants;
+
+global uk.gov.moj.cpp.accesscontrol.common.providers.UserAndGroupProvider userAndGroupProvider;
+
+rule "Query - get all announcement"
+  when
+    $outcome: Outcome();
+    $action: Action(name == "systemannouncement.get-all-announcements");
+    eval(userAndGroupProvider.hasPermission($action, ExpectedPermissionConstants.expectedPermissionForSystemAnnouncement()));
+  then
+    $outcome.setSuccess(true);
+end
+
+rule "Query - get banner announcements"
+  when
+    $outcome: Outcome();
+    $action: Action(name == "systemannouncement.get-banner-announcements");
+    eval($action.userId().isPresent());
+  then
+    $outcome.setSuccess(true);
+end

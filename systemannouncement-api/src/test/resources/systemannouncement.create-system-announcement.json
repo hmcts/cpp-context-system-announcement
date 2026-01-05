@@ -1,0 +1,11 @@
+{
+  "createdBy": "test user",
+  "category": "test category",
+  "type": "test type",
+  "startDate": "2022-02-02",
+  "endDate": "2022-03-03",
+  "startTime":"20:00:00+00:00",
+  "endTime":"20:00:00+00:00",
+  "title": "title",
+  "details": "test details"
+}

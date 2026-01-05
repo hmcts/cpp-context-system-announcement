@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.10.xsd">
+
+
+    <changeSet id="001-create-system-announcement" author="cpp-context-system-announcement">
+        <createTable tableName="system_announcement">
+            <column name="id" type="UUID">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="created_by" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="category" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="start_date" type="DATE"/>
+            <column name="end_date" type="DATE"/>
+            <column name="start_time" type="TIME"/>
+            <column name="end_time" type="TIME"/>
+            <column name="title" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="details" type="TEXT"/>
+            <column name="created_at" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP"/>
+            <column name="order_index" type="SMALLINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <sql>
+            ALTER TABLE system_announcement
+                ADD CONSTRAINT chk_category
+                    CHECK (category IN ('UNPLANNED', 'PLANNED'));
+        </sql>
+
+        <sql>
+            ALTER TABLE system_announcement
+                ADD CONSTRAINT chk_type
+                    CHECK (type IN ('CRITICAL', 'WARNING', 'INFORMATION'));
+        </sql>
+
+    </changeSet>
+
+</databaseChangeLog>

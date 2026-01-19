@@ -3,7 +3,7 @@
     <parent>
         <artifactId>systemannouncement-persistence</artifactId>
         <groupId>uk.gov.moj.cpp.system.announcement</groupId>
-        <version>17.100.11-SNAPSHOT</version>
+        <version>17.100.11-PEG-2792-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 

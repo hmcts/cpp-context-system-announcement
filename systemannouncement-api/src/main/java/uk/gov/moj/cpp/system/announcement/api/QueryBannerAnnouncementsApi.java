@@ -9,7 +9,7 @@ import uk.gov.moj.cpp.system.announcement.persistence.entity.SystemAnnouncementE
 import uk.gov.moj.cpp.system.announcement.persistence.repository.SystemAnnouncementRepository;
 
 import javax.inject.Inject;
-import javax.json.Json;
+import uk.gov.justice.services.messaging.JsonObjects;
 import javax.json.JsonArrayBuilder;
 import javax.json.JsonObjectBuilder;
 import java.util.List;
@@ -28,10 +28,10 @@ public class QueryBannerAnnouncementsApi {
         List<SystemAnnouncementEntity> result = systemAnnouncementRepository.findActiveSystemAnnouncements();
 
         List<SystemBannerAnnouncement> systemBannerAnnouncementList = systemAnnouncementRepository.sort(result);
-        JsonArrayBuilder jsonArrayBuilder = Json.createArrayBuilder();
+        JsonArrayBuilder jsonArrayBuilder = JsonObjects.createArrayBuilder();
         systemBannerAnnouncementList.stream().forEach(a -> jsonArrayBuilder.add(objectToJsonObjectConverter.convert(a)));
 
-        final JsonObjectBuilder jsonObjectBuilder = Json.createObjectBuilder();
+        final JsonObjectBuilder jsonObjectBuilder = JsonObjects.createObjectBuilder();
         jsonObjectBuilder.add("systemBannerAnnouncements", jsonArrayBuilder);
 
         return envelopeFrom(envelope.metadata(), jsonObjectBuilder.build());

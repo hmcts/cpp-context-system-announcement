@@ -16,7 +16,7 @@ import uk.gov.moj.cpp.system.announcement.persistence.repository.SystemAnnouncem
 import java.util.Collections;
 import java.util.List;
 
-import javax.json.Json;
+import uk.gov.justice.services.messaging.JsonObjects;
 import javax.json.JsonArrayBuilder;
 import javax.json.JsonObject;
 import javax.json.JsonObjectBuilder;
@@ -49,14 +49,14 @@ public class QueryBannerAnnouncementsApiTest {
 
         when(systemAnnouncementRepository.findActiveSystemAnnouncements()).thenReturn(entities);
         when(systemAnnouncementRepository.sort(entities)).thenReturn(bannerAnnouncements);
-        when(objectToJsonObjectConverter.convert(bannerAnnouncement)).thenReturn(Json.createObjectBuilder().build());
+        when(objectToJsonObjectConverter.convert(bannerAnnouncement)).thenReturn(JsonObjects.createObjectBuilder().build());
 
-        JsonEnvelope envelope = envelopeFrom(metadataWithRandomUUID("systemannouncement.get-banner-announcements"), Json.createObjectBuilder().build());
+        JsonEnvelope envelope = envelopeFrom(metadataWithRandomUUID("systemannouncement.get-banner-announcements"), JsonObjects.createObjectBuilder().build());
         JsonEnvelope result = queryBannerAnnouncementsApi.getSystemBannerAnnouncements(envelope);
 
-        JsonArrayBuilder jsonArrayBuilder = Json.createArrayBuilder();
-        jsonArrayBuilder.add(Json.createObjectBuilder().build());
-        JsonObjectBuilder jsonObjectBuilder = Json.createObjectBuilder();
+        JsonArrayBuilder jsonArrayBuilder = JsonObjects.createArrayBuilder();
+        jsonArrayBuilder.add(JsonObjects.createObjectBuilder().build());
+        JsonObjectBuilder jsonObjectBuilder = JsonObjects.createObjectBuilder();
         jsonObjectBuilder.add("systemBannerAnnouncements", jsonArrayBuilder);
 
         assertThat(result.payloadAsJsonObject(), is(jsonObjectBuilder.build()));

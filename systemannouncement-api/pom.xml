@@ -4,7 +4,7 @@
     <parent>
         <groupId>uk.gov.moj.cpp.system.announcement</groupId>
         <artifactId>systemannouncement-parent</artifactId>
-        <version>17.100.11-PEG-2792-SNAPSHOT</version>
+        <version>17.104.11-PEG-2792-SNAPSHOT</version>
     </parent>
 
     <artifactId>systemannouncement-api</artifactId>

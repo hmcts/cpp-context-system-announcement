@@ -8,7 +8,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
-import javax.json.Json;
+import uk.gov.justice.services.messaging.JsonObjects;
 import javax.json.JsonObject;
 import javax.json.JsonValue;
 
@@ -22,13 +22,13 @@ public class JsonHelperTest {
     private static final String EMPTY = "";
 
     private static JsonObject createPayload(final String key, final String value) {
-        return Json.createObjectBuilder()
+        return JsonObjects.createObjectBuilder()
                 .add(key, value)
                 .build();
     }
 
     private static JsonObject createEmptyPayload() {
-        return Json.createObjectBuilder()
+        return JsonObjects.createObjectBuilder()
                 .build();
     }
 
@@ -63,7 +63,7 @@ public class JsonHelperTest {
 
     @Test
     public void shouldReturnEmptyStringForJsonNull() throws Exception {
-        final JsonObject jsonNull = Json.createObjectBuilder().add("id", JsonValue.NULL).build();
+        final JsonObject jsonNull = JsonObjects.createObjectBuilder().add("id", JsonValue.NULL).build();
 
         final String result = JsonHelper.getString(jsonNull, "id");
 

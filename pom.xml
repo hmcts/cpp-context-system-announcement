@@ -15,7 +15,7 @@
         <mvn.site.url>file://${project.build.directory}/site</mvn.site.url>
         <commons-dbutils.version>1.6</commons-dbutils.version>
         <jgitflow.maven.developBranchName>main</jgitflow.maven.developBranchName>
-        <usersgroups.version>17.104.47</usersgroups.version>
+        <usersgroups.version>17.0.39</usersgroups.version>
     </properties>
 
     <packaging>pom</packaging>

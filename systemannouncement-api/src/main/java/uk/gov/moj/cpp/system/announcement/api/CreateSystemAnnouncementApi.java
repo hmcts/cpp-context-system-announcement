@@ -10,8 +10,8 @@ import uk.gov.justice.services.messaging.JsonEnvelope;
 import uk.gov.moj.cpp.system.announcement.api.service.SystemAnnouncementService;
 import uk.gov.moj.cpp.system.announcement.domain.common.SystemAnnouncement;
 
-import javax.inject.Inject;
-import javax.json.JsonObject;
+import jakarta.inject.Inject;
+import jakarta.json.JsonObject;
 
 @CustomServiceComponent("SystemAnnouncement.API")
 public class CreateSystemAnnouncementApi {

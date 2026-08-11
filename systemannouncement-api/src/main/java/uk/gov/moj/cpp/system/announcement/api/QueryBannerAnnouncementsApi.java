@@ -8,10 +8,10 @@ import uk.gov.moj.cpp.system.announcement.domain.common.SystemBannerAnnouncement
 import uk.gov.moj.cpp.system.announcement.persistence.entity.SystemAnnouncementEntity;
 import uk.gov.moj.cpp.system.announcement.persistence.repository.SystemAnnouncementRepository;
 
-import javax.inject.Inject;
+import jakarta.inject.Inject;
 import uk.gov.justice.services.messaging.JsonObjects;
-import javax.json.JsonArrayBuilder;
-import javax.json.JsonObjectBuilder;
+import jakarta.json.JsonArrayBuilder;
+import jakarta.json.JsonObjectBuilder;
 import java.util.List;
 
 import static uk.gov.justice.services.messaging.JsonEnvelope.envelopeFrom;

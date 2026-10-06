@@ -10,7 +10,7 @@
 
     <groupId>uk.gov.moj.cpp.system.announcement</groupId>
     <artifactId>systemannouncement-parent</artifactId>
-    <version>25.104.12-SNAPSHOT</version>
+    <version>25.104.13-SNAPSHOT</version>
     <properties>
         <mvn.site.url>file://${project.build.directory}/site</mvn.site.url>
         <jgitflow.maven.developBranchName>main</jgitflow.maven.developBranchName>

@@ -23,7 +23,7 @@ import uk.gov.moj.cpp.system.announcement.domain.common.Type;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-import javax.json.JsonObject;
+import jakarta.json.JsonObject;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

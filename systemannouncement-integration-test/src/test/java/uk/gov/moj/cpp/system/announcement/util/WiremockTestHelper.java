@@ -10,7 +10,7 @@ import uk.gov.moj.cpp.system.announcement.helper.RestHelper;
 
 import java.util.concurrent.TimeUnit;
 
-import javax.ws.rs.core.Response.Status;
+import jakarta.ws.rs.core.Response.Status;
 
 
 /**
